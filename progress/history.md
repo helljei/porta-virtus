@@ -40,6 +40,13 @@ Formato de cada entrada:
 - **Verificación:** `npm test -- --run` → 3/3 pasan en 1.24 s. `node init.mjs` → `[OK]`.
 - **Cierre:** done. Warnings `act()` aceptados (no se editan componentes soberanos). Próximo: feature 4 (vercel_deploy).
 
+## 2026-05-24 — Backlog ampliado (features 5-8 añadidas como pending)
+
+- **Agente:** Claude Opus 4.7 (leader, anotación de backlog tras petición del usuario "anota en el harness").
+- **Cambios:** `feature_list.json` ahora lista 4 features `done` + 4 `pending` (5: smoke_manual_ui, 6: github_vercel_oauth, 7: add_favicon, 8: expand_readme). Ninguna toca código todavía.
+- **Verificación:** `node init.mjs` verde (0 features `in_progress`, regla R1 respetada).
+- **Cierre:** ninguna feature `in_progress`. La próxima sesión puede elegir cualquiera de 5-8 como punto de entrada.
+
 ## 2026-05-24 — Feature 4: vercel_deploy
 
 - **Agente:** Claude Opus 4.7 (leader + implementer + reviewer), con confirmación humana antes de las acciones externas.

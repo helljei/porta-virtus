@@ -65,6 +65,63 @@
         "feature_list.json tiene esta feature en status done"
       ],
       "status": "done"
+    },
+    {
+      "id": 5,
+      "name": "smoke_manual_ui",
+      "title": "Smoke manual de la UI en producción",
+      "description": "Acceptance manual del usuario en browser: el ciclo crear hábito → marcar → reload persiste en localStorage real (cubre la línea 6 del acceptance de feature 2 que es no-ejecutable).",
+      "acceptance": [
+        "Usuario abre https://porta-virtus.vercel.app y la UI carga sin errores en consola",
+        "Usuario ingresa su nombre en el NameModal y aparece el dashboard",
+        "Usuario crea un hábito nuevo en la tab Tareas",
+        "Usuario marca el hábito como cumplido en la tab Hoy",
+        "Usuario recarga (F5) y el hábito + la marca persisten",
+        "Usuario navega las 8 tabs (Hoy, Semana, Mensual, Anual, Insignias, Insights, Guía, Tareas) sin que ninguna lance error"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "name": "github_vercel_oauth",
+      "title": "Conectar GitHub↔Vercel para CI/CD automático",
+      "description": "Autorizar la integración GitHub en el dashboard de Vercel para que cada push a main deploye automáticamente. Requiere acción manual en el dashboard (cross-account OAuth: cuenta Vercel welcomerh sobre cuenta GitHub helljei).",
+      "acceptance": [
+        "En dashboard Vercel → welcomerh/porta-virtus → Settings → Git: aparece conectado a helljei/porta-virtus",
+        "Un push de prueba a main dispara un build automático en Vercel sin correr `vercel deploy`",
+        "El build automático llega a estado Ready y promueve a producción",
+        "Las preview deployments se generan para cada PR"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "name": "add_favicon",
+      "title": "Agregar favicon propio",
+      "description": "Diseñar e incluir favicon (.ico + variantes png 192/512 para PWA futura) coherente con la estética de Porta Virtus (columna estoica o letra V). Referenciar desde index.html.",
+      "acceptance": [
+        "public/favicon.ico existe (mínimo 32x32)",
+        "public/icon-192.png y public/icon-512.png existen",
+        "index.html tiene <link rel=icon> apuntando al favicon",
+        "Tras `npm run build`, dist/ incluye los assets del favicon",
+        "El browser muestra el icono propio en la pestaña (no el default de Vercel)"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "name": "expand_readme",
+      "title": "Expandir README para audiencia externa",
+      "description": "Convertir el README mínimo actual en uno presentable: descripción del producto, screenshots de las tabs principales, sistema de XP/streaks/badges explicado, badge del deploy.",
+      "acceptance": [
+        "README tiene sección con descripción del producto (2-3 párrafos)",
+        "Incluye al menos 2 screenshots (Hoy y Insights)",
+        "Lista las 8 tabs y qué hace cada una",
+        "Explica el sistema de XP y niveles",
+        "Incluye badge de Vercel deploy (shields.io)",
+        "Links a docs/ para colaboradores"
+      ],
+      "status": "pending"
     }
   ]
 }
