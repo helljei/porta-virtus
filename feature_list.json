@@ -64,7 +64,7 @@
         "La UI cargada coincide con npm run preview local",
         "feature_list.json tiene esta feature en status done"
       ],
-      "status": "in_progress"
+      "status": "done"
     }
   ]
 }

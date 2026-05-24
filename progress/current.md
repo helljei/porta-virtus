@@ -1,24 +1,22 @@
 # Sesión actual
 
-- **Feature en curso:** 1 — `scaffold_vite`
-- **Inicio:** 2026-05-24
-- **Agente:** Claude Opus 4.7 (leader + implementer + reviewer en un solo turno orquestado)
+> Este archivo se vacía al cerrar cada sesión y su contenido se mueve a `history.md`.
+> Mientras trabajas, **mantenlo actualizado en tiempo real**, no al final.
+
+- **Feature en curso:** *ninguna*
+- **Inicio:** *—*
+- **Agente:** *—*
 
 ## Plan
 
-- Crear `package.json` con scripts dev/build/preview/test/typecheck y deps mínimas (react, react-dom, vite, typescript, vitest, testing-library, jsdom).
-- Crear `tsconfig.json` permisivo (strict:false, noImplicitAny:false) + `tsconfig.node.json` para vite.config.
-- Crear `vite.config.ts` con plugin React y config Vitest embebida (environment jsdom).
-- Crear `index.html` con título "Porta Virtus" y meta description.
-- Crear `src/main.tsx` (bootstrap React 18) y `src/App.tsx` placeholder (`<div>scaffold OK</div>` hasta feature 2).
-- Correr `npm install` y `node init.mjs` → verde.
+*Describe en 3-5 bullets qué vas a hacer antes de tocar código.*
 
 ## Bitácora
 
-- Harness inicial creado (AGENTS, docs, CHECKPOINTS, agents, settings, init).
-- `node init.mjs` verde con `package.json` ausente (warn esperado).
-- Bug detectado y arreglado en init.mjs: faltaba `shell:true` para `spawnSync` con `npm.cmd` en Windows.
+*Anota aquí cada paso significativo: archivos creados, decisiones, bloqueos.*
+
+- ...
 
 ## Próximo paso
 
-Si la sesión se interrumpe: continuar con Feature 2 (integrate_porta_virtus).
+*Si la sesión se interrumpe, lo primero que debe hacer la siguiente sesión.*

@@ -1,14 +1,14 @@
-# Review — feature 3: smoke_test
+# Review — feature 4: vercel_deploy
 
 **Veredicto:** APPROVED
 
 ## Checkpoints
 
-- C1: [x] Harness completo, `node init.mjs` verde con tests pasando.
-- C2: [x] Solo feature 3 en `in_progress`; coherente para pasar a `done`.
-- C3: [x] No se modifica el componente soberano; el test vive aparte en `tests/`.
-- C4: [x] 3 tests reales con jsdom + localStorage sin mocks (conforme a `docs/conventions.md` y `docs/verification.md`). Cubren camino feliz (loader, modal, dashboard) y un edge (sin user en storage).
-- C5: [x] `current.md` describe la sesión activa; `history.md` se actualizará al cierre.
+- C1: [x] Harness intacto; `node init.mjs` sigue verde con tests pasando.
+- C2: [x] Solo feature 4 en `in_progress`; tras el marcado a `done` quedan 0 `in_progress` y 4 `done`.
+- C3: [x] `vercel.json` no introduce código nuevo en `src/`. El componente sigue soberano.
+- C4: [x] Smoke ejecutable contra el dominio público: `Status 200`, `Title: Porta Virtus`, `root div` presente, bundle JS servido. Hash del bundle (`index-B5IO3CO9.js`) idéntico al build local.
+- C5: [x] `git status` queda limpio tras el commit del `.gitignore` actualizado. Próxima sesión recibe `current.md` vacío.
 
 ## Cambios requeridos
 
@@ -16,5 +16,5 @@ Ninguno.
 
 ## Notas
 
-- Los warnings de `act()` son aceptables: provienen de `setState` dentro del effect async de `loadData()` en el componente soberano. Suprimirlos requeriría editar el original, vetado por `docs/architecture.md`. `waitFor` ya garantiza la sincronización correcta del test.
-- La feature 2 quedó con un acceptance de "verificación manual de localStorage" pendiente del usuario en el browser; el test 3 de esta feature lo cubre ejecutablemente.
+- La auto-conexión GitHub ↔ Vercel falló por separación de cuentas (helljei vs welcomerh). Es esperable y no impide el deploy. Queda anotado en `impl_4.md` como pendiente *no bloqueante* para el usuario.
+- El proyecto está bajo el scope `welcomerh` de Vercel, alineado con [[project_welcome_rh]] e [[project_info_cv]].

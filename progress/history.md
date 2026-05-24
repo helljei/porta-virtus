@@ -39,3 +39,11 @@ Formato de cada entrada:
 - **Cambios:** `tests/PortaVirtus.test.tsx` (3 tests).
 - **Verificación:** `npm test -- --run` → 3/3 pasan en 1.24 s. `node init.mjs` → `[OK]`.
 - **Cierre:** done. Warnings `act()` aceptados (no se editan componentes soberanos). Próximo: feature 4 (vercel_deploy).
+
+## 2026-05-24 — Feature 4: vercel_deploy
+
+- **Agente:** Claude Opus 4.7 (leader + implementer + reviewer), con confirmación humana antes de las acciones externas.
+- **Plan:** vercel.json + git init + commit local → gh repo create (helljei/porta-virtus público) → vercel link --scope welcomerh → vercel deploy --prod.
+- **Cambios:** `vercel.json` (framework vite + SPA rewrite + cache headers), `.gitignore` (+ `.vercel`, `*.tsbuildinfo`). Repo creado en https://github.com/helljei/porta-virtus. Proyecto Vercel `welcomerh/porta-virtus` con alias `porta-virtus.vercel.app`.
+- **Verificación:** `GET https://porta-virtus.vercel.app` → 200, title "Porta Virtus", root div presente, bundle `/assets/index-B5IO3CO9.js` idéntico al build local.
+- **Cierre:** done. Auto-conexión GitHub↔Vercel quedó pendiente (cross-account OAuth no autorizado). Deploys futuros requieren `vercel deploy --prod` desde local hasta que se autorice la integración.

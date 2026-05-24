@@ -12,3 +12,5 @@ Thumbs.db
 coverage/
 *.tsbuildinfo
 .vite-preview.log
+
+.vercel
