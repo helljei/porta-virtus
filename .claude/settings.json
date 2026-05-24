@@ -1,0 +1,56 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"try { const {spawnSync} = require('child_process'); const r = spawnSync(process.platform==='win32'?'npm.cmd':'npm', ['test','--silent','--','--run','--reporter=basic'], {encoding:'utf8'}); const lines = (r.stdout+r.stderr).trim().split(/\\r?\\n/); console.log(lines.slice(-3).join('\\n')); } catch (e) { console.log('[hook] tests skipped: ' + e.message); }\"",
+            "description": "Tras Edit/Write corre Vitest (si existe) y muestra las últimas 3 líneas."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node init.mjs",
+            "description": "Antes de cerrar la sesión fuerza verificación completa del harness."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(node init.mjs)",
+      "Bash(node:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(npm create:*)",
+      "Bash(npm exec:*)",
+      "Bash(npx:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git init)",
+      "Bash(git branch:*)",
+      "Bash(git remote:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh repo list:*)",
+      "Bash(gh api:*)",
+      "Bash(vercel --version)",
+      "Bash(vercel ls:*)",
+      "Bash(vercel link:*)",
+      "Bash(vercel inspect:*)"
+    ]
+  }
+}

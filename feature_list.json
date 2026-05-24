@@ -1,0 +1,70 @@
+{
+  "project": "porta-virtus",
+  "description": "App de tracking de hábitos estilo estoico, single-page React, deploy en Vercel.",
+  "rules": {
+    "one_feature_at_a_time": true,
+    "require_tests_to_close": true,
+    "valid_status": ["pending", "in_progress", "done", "blocked"]
+  },
+  "features": [
+    {
+      "id": 1,
+      "name": "scaffold_vite",
+      "title": "Scaffolding Vite + React + TypeScript",
+      "description": "Inicializa el proyecto Vite con plantilla react-ts, configura tsconfig permisivo y agrega Vitest + Testing Library + jsdom para los tests.",
+      "acceptance": [
+        "package.json existe con scripts dev, build, preview, test, typecheck",
+        "tsconfig.json tiene noImplicitAny:false y strict:false",
+        "npm run build produce dist/index.html sin errores",
+        "npm test -- --run termina con exit 0 (sin tests aún OK)",
+        "npm run typecheck termina con exit 0",
+        "vitest.config.ts existe con environment jsdom"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "name": "integrate_porta_virtus",
+      "title": "Integrar el componente PortaVirtus",
+      "description": "Copia porta_virtus.tsx desde Downloads a src/PortaVirtus.tsx, renderiza desde src/App.tsx, ajusta index.html (título, meta description, favicon opcional).",
+      "acceptance": [
+        "src/PortaVirtus.tsx existe y exporta default function PortaVirtus",
+        "src/App.tsx importa y renderiza <PortaVirtus />",
+        "index.html tiene <title>Porta Virtus</title> y meta description",
+        "npm run build pasa sin errores",
+        "npm run dev muestra la UI completa con las 8 tabs",
+        "LocalStorage persiste entre reloads (verificación manual smoke)"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "name": "smoke_test",
+      "title": "Smoke test con Vitest",
+      "description": "Test mínimo que monta <PortaVirtus /> con Testing Library y verifica que renderiza sin throw + presencia de elementos clave.",
+      "acceptance": [
+        "tests/PortaVirtus.test.tsx existe",
+        "El test monta el componente sin lanzar error",
+        "El test verifica al menos un elemento de texto visible (título o tab)",
+        "npm test -- --run pasa al 100%",
+        "node init.mjs termina [OK]"
+      ],
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "name": "vercel_deploy",
+      "title": "Deploy a Vercel en porta-virtus.vercel.app",
+      "description": "Crea vercel.json con framework vite + SPA rewrite, repo en helljei/porta-virtus, conecta Vercel, deploy a producción.",
+      "acceptance": [
+        "vercel.json existe con framework: 'vite' y rewrites para SPA",
+        "Repo helljei/porta-virtus existe y tiene main como rama por defecto",
+        "Vercel project conectado al repo",
+        "https://porta-virtus.vercel.app responde 200",
+        "La UI cargada coincide con npm run preview local",
+        "feature_list.json tiene esta feature en status done"
+      ],
+      "status": "in_progress"
+    }
+  ]
+}
