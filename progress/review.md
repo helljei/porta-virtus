@@ -1,14 +1,14 @@
-# Review — feature 7: add_favicon
+# Review — feature 9: redesign_favicon_to_torch
 
 **Veredicto:** APPROVED
 
 ## Checkpoints
 
-- C1: [x] `node init.mjs` verde. Sin nuevas dependencias.
-- C2: [x] Solo feature 7 en `in_progress` durante el ciclo; lista para `done`.
-- C3: [x] Sin imports nuevos en `src/`. El SVG vive en `public/` (estático) y se sirve directo desde Vercel. La paleta del SVG es la misma del componente (homogeneidad).
-- C4: [x] Verificación ejecutable: `dist/favicon.svg` 1278 bytes, GET prod 200 con `content-type` correcto, V path y header SVG verificados.
-- C5: [x] `git status` queda limpio tras el commit.
+- C1: [x] `node init.mjs` verde.
+- C2: [x] Solo feature 9 en `in_progress`. Feature 7 (favicon anterior) sigue `done` por integridad histórica.
+- C3: [x] El asset vive en `public/`; sin cambios en `src/`. Paleta `#1B4F8A`, `#C17F3A`, `#A0622A`, `#F2EDE4` coincide con la del componente (homogeneidad).
+- C4: [x] Verificación ejecutable: build genera `dist/favicon.svg` correcto, GET prod responde 200 con `image/svg+xml`, contenido verificado por presencia del arco y la primera capa de llama.
+- C5: [x] Commit y push se harán al cierre; `current.md` se vaciará.
 
 ## Cambios requeridos
 
@@ -16,5 +16,5 @@ Ninguno.
 
 ## Notas
 
-- La verificación visual final de la pestaña queda al usuario (cache del browser puede tardar en refrescarse; recomendar Ctrl+Shift+R).
-- Si en el futuro se quiere PWA, se puede agregar `icon-192.png` / `icon-512.png` en `public/` + `manifest.json` como feature aparte.
+- Cualquier nuevo redesign del favicon debe abrir una feature nueva (10, 11, ...). La historia visual queda en `history.md`.
+- La aparente "duplicación" de features de favicon (7 done + 9 done) es intencional y correcta según el ciclo del harness.

@@ -122,6 +122,20 @@
         "Links a docs/ para colaboradores"
       ],
       "status": "pending"
+    },
+    {
+      "id": 9,
+      "name": "redesign_favicon_to_torch",
+      "title": "Rediseñar favicon: antorcha dentro de un arco (porta)",
+      "description": "El usuario pidió reemplazar la corona de laurel (feature 7) por una antorcha encendida dentro de un arco — alegoría más directa a 'Porta Virtus' (puerta + luz de virtud). Mantiene paleta del proyecto.",
+      "acceptance": [
+        "public/favicon.svg rediseñado con arco azul + antorcha dorada + llamas",
+        "Sin cambios en index.html (mismo path /favicon.svg)",
+        "Tras `npm run build`, dist/favicon.svg refleja el nuevo SVG",
+        "GET https://porta-virtus.vercel.app/favicon.svg responde 200 con el nuevo contenido",
+        "El nuevo favicon es legible a 16x16 (la silueta general se reconoce)"
+      ],
+      "status": "done"
     }
   ]
 }

@@ -40,6 +40,14 @@ Formato de cada entrada:
 - **Verificación:** `npm test -- --run` → 3/3 pasan en 1.24 s. `node init.mjs` → `[OK]`.
 - **Cierre:** done. Warnings `act()` aceptados (no se editan componentes soberanos). Próximo: feature 4 (vercel_deploy).
 
+## 2026-05-24 — Feature 9: redesign_favicon_to_torch
+
+- **Agente:** Claude Opus 4.7 (leader + implementer + reviewer).
+- **Plan:** Reescribir `public/favicon.svg` reemplazando la corona+V por arco azul + antorcha dorada con llamas (pedido del usuario tras ver feature 7 en producción).
+- **Cambios:** `public/favicon.svg` (1278 → 1174 bytes, composición completa nueva). `feature_list.json` (+feature 9 done).
+- **Verificación:** build OK, deploy --prod OK, `GET /favicon.svg` 200 con arco path y `#FF6B1A` (capa exterior de llama) verificados. Old V path eliminado.
+- **Cierre:** done. Feature 7 (corona) queda como registro histórico — el harness no reabre features `done`.
+
 ## 2026-05-24 — Feature 7: add_favicon
 
 - **Agente:** Claude Opus 4.7 (leader + implementer + reviewer).
