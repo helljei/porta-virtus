@@ -40,6 +40,14 @@ Formato de cada entrada:
 - **Verificación:** `npm test -- --run` → 3/3 pasan en 1.24 s. `node init.mjs` → `[OK]`.
 - **Cierre:** done. Warnings `act()` aceptados (no se editan componentes soberanos). Próximo: feature 4 (vercel_deploy).
 
+## 2026-05-24 — Feature 7: add_favicon
+
+- **Agente:** Claude Opus 4.7 (leader + implementer + reviewer).
+- **Plan:** Diseñar SVG vectorial de corona de laurel con V central + linkearlo desde `index.html` + deploy.
+- **Cambios:** `public/favicon.svg` (1278 bytes, viewBox 64x64, 10 hojas + baya + V cream sobre fondo azul oscuro), `index.html` (+2 `<link>`).
+- **Verificación:** `npm run build` produce `dist/favicon.svg` correctamente; deploy `porta-virtus-mz1p4s4mt`; `GET /favicon.svg` 200 `image/svg+xml` con V path verificado.
+- **Cierre:** done. Verificación visual final queda al usuario (puede necesitar Ctrl+Shift+R por cache de la pestaña).
+
 ## 2026-05-24 — Backlog ampliado (features 5-8 añadidas como pending)
 
 - **Agente:** Claude Opus 4.7 (leader, anotación de backlog tras petición del usuario "anota en el harness").
